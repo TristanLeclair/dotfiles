@@ -49,7 +49,7 @@ Open `nvim` and enter the following:
 │       ├── options.lua -- general vim options
 │       ├── plugins.lua -- add plugins here
 │       └── wsl.lua -- extra configuration for windows (powershell)
-├── plugin
+├── plugin -- automatically generated
 │   └── packer_compiled.lua
 
 ```
