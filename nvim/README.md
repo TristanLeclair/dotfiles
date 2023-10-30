@@ -17,6 +17,7 @@ Open `nvim` and enter the following:
 
 ## Configuration
 
+```
 .
 ├── README.md
 ├── after -- loads after lua/user
@@ -47,6 +48,7 @@ Open `nvim` and enter the following:
 │   └── wsl.lua -- extra configuration for windows (powershell)
 ├── plugin
 │   └── packer_compiled.lua
+```
 
 ### Keymaps
 
