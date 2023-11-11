@@ -4,11 +4,18 @@ if not status_ok then
 	return
 end
 
+local obsidian_dir = ""
+if vim.fn.has("wsl") == 1 then
+	obsidian_dir = "/mnt/c/Users/trist/ObsidianVaults/"
+else
+  obsidian_dir = "~/ObsidianVaults/"
+end
+
 obsidian.setup({
 	-- Options
 	workspaces = { {
 		name = "dnd",
-		path = "~/ObsidianVaults/DndVault/",
+		path = obsidian_dir .. "DndVault",
 	} },
 
 	-- templates
@@ -37,7 +44,7 @@ if not status_ok_whichkey then
 end
 
 wk.register({
-	o = {
+	["<leader>o"] = {
 		name = "Obsidian",
 		n = { "<cmd>ObsidianNew<CR>", "New Note" },
 		f = { "<cmd>ObsidianSearch<CR>", "Find Note" },
