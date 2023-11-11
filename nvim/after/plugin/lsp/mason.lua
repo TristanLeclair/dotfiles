@@ -8,7 +8,7 @@ local servers = {
 	"bashls",
 	"jsonls",
 	-- "yamlls",
-	"marksman",
+	-- "marksman",
 }
 
 local settings = {

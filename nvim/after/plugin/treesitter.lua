@@ -14,6 +14,7 @@ configs.setup({
 		"python",
 		"c_sharp",
 		"markdown",
+    "markdown_inline"
 	},
 	highlight = {
 		enable = true,

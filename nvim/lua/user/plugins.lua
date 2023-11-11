@@ -96,7 +96,7 @@ return packer.startup(function(use)
 	use({ "lervag/vimtex", commit = "fa5cbe4fab0e9b7c62ee318a158297a529c6d7b5" })
 
 	-- ccc
-	use("uga-rosa/ccc.nvim")
+	use({ "uga-rosa/ccc.nvim", commit = "f77b477d9f0b9a28612212b3fc43145f2a5591cc" })
 
 	-- copilot
 	-- use({ "github/copilot.vim", commit = "998cf5ab1b85e844c7e8edb864a997e590df7182" })
