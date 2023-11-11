@@ -12,9 +12,12 @@ configs.setup({
 		"lua",
 		"typescript",
 		"python",
+		"c_sharp",
+		"markdown",
 	},
 	highlight = {
 		enable = true,
 		disable = {},
+		additional_vim_regex_highlighting = { "markdown" },
 	},
 })
