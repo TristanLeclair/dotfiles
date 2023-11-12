@@ -103,6 +103,13 @@ return packer.startup(function(use)
 	use({ "zbirenbaum/copilot.lua", commit = "1a8032ae496916ccc7a7a52ee79194fbef29f462" })
 	use({ "zbirenbaum/copilot-cmp", commit = "72fbaa03695779f8349be3ac54fa8bd77eed3ee3", after = { "copilot.lua" } })
 
+	-- obsidian
+	use({
+		"epwalsh/obsidian.nvim",
+		requires = { "nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp", "nvim-telescope/telescope.nvim" },
+		commit = "c6d33d77319c580e9f1ff2c9a09b92d31e37190f",
+	})
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
