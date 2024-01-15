@@ -20,7 +20,7 @@ vim.keymap.set("n","<C-l>", "<C-w>l")
 
 -- Save and quit
 vim.keymap.set("n","<leader>w", ":update<cr>")
-vim.keymap.set("n","<leader>q", ":q<cr>")
+vim.keymap.set("n","<leader>q", ":confirm q<cr>")
 
 -- Better file naviagtion
 vim.keymap.set("n","<C-d>", "<C-d>zz")
