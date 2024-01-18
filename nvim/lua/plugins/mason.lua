@@ -8,6 +8,7 @@ local M = {
 function M.config()
   local servers = {
     "lua_ls",
+    "pyright",
   }
 
   require("mason").setup()

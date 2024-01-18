@@ -22,7 +22,7 @@ function M.config()
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 			vim.keymap.set("n", "gI", vim.lsp.buf.implementation, opts)
-			vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+			-- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
 			vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
 			vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, opts)
 			vim.keymap.set({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, opts)
@@ -37,6 +37,7 @@ function M.config()
 
 	local servers = {
 		"lua_ls",
+    "pyright",
 	}
 
 	for _, server in pairs(servers) do
