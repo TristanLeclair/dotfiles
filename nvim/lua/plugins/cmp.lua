@@ -5,7 +5,73 @@ local M = {
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"hrsh7th/cmp-nvim-lua",
+		"hrsh7th/cmp-path",
 	},
+}
+
+local kind_icons = {
+	Array = "",
+	Boolean = "",
+	Class = "",
+	Color = "",
+	Constant = "",
+	Constructor = "󱁤",
+	Enum = "",
+	EnumMember = "",
+	Event = "",
+	Field = "",
+	File = "",
+	Folder = "󰉋",
+	Function = "󰊕",
+	Interface = "",
+	Key = "",
+	Keyword = "",
+	Method = "",
+	-- Module = "",
+	Module = "",
+	Namespace = "",
+	Null = "󰟢",
+	Number = "",
+	Object = "",
+	Operator = "",
+	Package = "",
+	Property = "",
+	Reference = "",
+	Snippet = "",
+	String = "",
+	Struct = "",
+	Text = "󰊄",
+	TypeParameter = "",
+	Unit = "",
+	Value = "",
+	Variable = "󰫧",
+	LineAdded = "",
+	LineModified = "",
+	LineRemoved = "",
+	FileDeleted = "",
+	FileIgnored = "◌",
+	FileRenamed = "",
+	FileStaged = "S",
+	FileUnmerged = "",
+	FileUnstaged = "",
+	FileUntracked = "U",
+	Diff = "",
+	Repo = "",
+	Octoface = "",
+	Copilot = "",
+	Branch = "",
+	BoldError = "",
+	Error = "",
+	BoldWarning = "",
+	Warning = "",
+	BoldInformation = "",
+	Information = "",
+	BoldQuestion = "",
+	Question = "",
+	BoldHint = "",
+	Hint = "󰌶",
+	Debug = "",
+	Trace = "✎",
 }
 
 function M.config()
@@ -18,15 +84,33 @@ function M.config()
 	end
 
 	cmp.setup({
-    snippet = {
-      expand = function(args)
-        luasnip.lsp_expand(args.body)
-      end
-    },
+		snippet = {
+			expand = function(args)
+				luasnip.lsp_expand(args.body)
+			end,
+		},
+		---@diagnostic disable-next-line: missing-fields
+		formatting = {
+			fields = { "abbr", "kind", "menu" },
+			format = function(entry, vim_item)
+				-- Kind icons
+				-- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+				vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+				vim_item.menu = ({
+					nvim_lsp = "[LSP]",
+					luasnip = "[Snippet]",
+					buffer = "[Buffer]",
+					path = "[Path]",
+				})[entry.source.name]
+				return vim_item
+			end,
+		},
 		sources = {
+			{ name = "copilot" },
 			{ name = "nvim_lsp" },
 			{ name = "luasnip" },
 			{ name = "buffer" },
+			{ name = "path" },
 		},
 		mapping = cmp.mapping.preset.insert({
 			["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
