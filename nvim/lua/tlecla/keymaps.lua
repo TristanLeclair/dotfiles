@@ -30,8 +30,8 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
 vim.keymap.set("n", "n", "nzzzv", opts)
 vim.keymap.set("n", "N", "Nzzzv", opts)
 
--- Netrw
-vim.keymap.set("n", "<Leader>pv", ":Ex<CR>", opts)
+-- Netrw (disabled due to nvim-tree
+-- vim.keymap.set("n", "<Leader>pv", ":Ex<CR>", opts)
 
 -- Clear search highlighting
 vim.keymap.set("n", "<leader>h", ":noh<CR>", opts)
