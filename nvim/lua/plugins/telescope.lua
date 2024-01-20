@@ -5,10 +5,16 @@ local M = {
 
 function M.config()
   local opts = { noremap = true, silent = true }
-  Set_keymap("n", "<leader>fd", "<cmd>Telescope find_files<cr>", opts, "Find files")
-  Set_keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts, "Live grep")
-  Set_keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts, "Find buffers")
-  Set_keymap("n", "<leader>fw", "<cmd>Telescope grep_string<cr>", opts, "Find string")
+  local builtin = require("telescope.builtin")
+  Set_keymap("n", "<leader>fem", builtin.man_pages, opts, "Man pages")
+  Set_keymap("n", "<leader>fd", builtin.find_files, opts, "Find files")
+  Set_keymap("n", "<leader>fg", builtin.live_grep, opts, "Live grep")
+  Set_keymap("n", "<leader>fb", builtin.buffers, opts, "Find buffers")
+  Set_keymap("n", "<leader>fw", builtin.grep_string, opts, "Find string")
+  Set_keymap("n", "<leader>fo", builtin.oldfiles, opts, "Find old files")
+  Set_keymap("n", "<leader>fs", builtin.current_buffer_fuzzy_find, opts, "Fuzzy find buffer")
+  Set_keymap("n", "<leader>fk", builtin.keymaps, opts, "Find keymaps")
+  Set_keymap("n", "<leader><c-r>", builtin.command_history, opts, "Command history")
 end
 
 return M
