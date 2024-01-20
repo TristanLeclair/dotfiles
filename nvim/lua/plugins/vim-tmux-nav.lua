@@ -4,10 +4,10 @@ local M = {
 }
 
 function M.config()
-  vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>")
-  vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>")
-  vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>")
-  vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>")
+  Set_keymap("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>")
+  Set_keymap("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>")
+  Set_keymap("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>")
+  Set_keymap("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>")
 end
 
 return M

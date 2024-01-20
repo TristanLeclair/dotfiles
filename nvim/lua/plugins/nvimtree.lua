@@ -9,7 +9,7 @@ local M = {
 function M.config()
   require("nvim-tree").setup({})
 
-  vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { noremap = true, silent = true })
+  Set_keymap("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { noremap = true, silent = true }, "Open tree view")
 end
 
 return M

@@ -13,7 +13,7 @@ function M.config()
 
   require("mason").setup()
   require("mason-lspconfig").setup({ ensure_installed = servers })
-  vim.keymap.set("n", "<leader>pm", ":Mason<cr>")
+  Set_keymap("n", "<leader>pm", "<cmd>Mason<cr>")
 end
 
 return M
