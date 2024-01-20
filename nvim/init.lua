@@ -13,6 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("tlecla.options")
 require("tlecla.keymaps")
+require("tlecla.autocommand")
 
 require("lazy").setup({
 	spec = {
