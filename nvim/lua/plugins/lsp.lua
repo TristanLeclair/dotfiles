@@ -18,8 +18,6 @@ function M.config()
 			-- Buffer local mappings.
 			-- See `:help vim.lsp.*` for documentation on any of the below functions
 			local opts = { buffer = ev.buf }
-			Set_keymap = require("tlecla.keymaps")
-
 			Set_keymap("n", "gD", vim.lsp.buf.declaration, opts, "Declaration")
 			Set_keymap("n", "gd", vim.lsp.buf.definition, opts, "Definition")
 			Set_keymap("n", "K", vim.lsp.buf.hover, opts, "Hover")
