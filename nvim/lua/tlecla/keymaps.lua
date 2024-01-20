@@ -57,7 +57,7 @@ Set_keymap("n", "j", "gj", opts)
 -- Splits
 Set_keymap("n", "ss", ":split<CR>", opts, "Horizontal split")
 Set_keymap("n", "sv", ":vsplit<CR>", opts, "Vertical split")
-Set_keymap("n", "sq", "<C-W>c", opts, "Close split")
+Set_keymap("n", "sq", "<C-W>q", opts, "Close split")
 
 -- Incrementation
 Set_keymap("n", "+", "<C-a>", opts)

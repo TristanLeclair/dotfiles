@@ -18,7 +18,7 @@ function M.config()
     button("n", icons.ui.NewFile .. " New file", ":ene <BAR> startinsert <CR>"),
     button("r", icons.ui.History .. " Recent files", ":Telescope oldfiles <CR>"),
     button("t", icons.ui.Text .. " Find text", ":Telescope live_grep <CR>"),
-    button("c", icons.ui.Gear .. " Config", ":e ~/.config/nvim/init.lua <CR>"),
+    button("c", icons.ui.Gear .. " Config", ":e ~/.config/nvim/init.lua <CR>:cd %:h<cr>"),
     button("q", icons.ui.SignOut .. " Quit", ":qa<CR>"),
   }
   local function footer()

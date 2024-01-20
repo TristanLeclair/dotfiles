@@ -12,7 +12,7 @@ local M = {
 function M.config()
 	local cmp = require("cmp")
 	local luasnip = require("luasnip")
-  local kind_icons = require("tlecla.icons")
+  local kind_icons = require("tlecla.icons").kind
 
 	local check_backspace = function()
 		local col = vim.fn.col(".") - 1
