@@ -36,7 +36,7 @@ Set_keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Save and quit
 Set_keymap("n", "<leader>w", ":update<cr>", opts, "Save")
-Set_keymap("n", "<leader>q", ":confirm q<cr>", opts, "Quit")
+Set_keymap("n", "<leader>q", ":confirm qa<cr>", opts, "Quit all")
 
 -- Better file naviagtion
 Set_keymap("n", "<C-d>", "<C-d>zz", opts)
