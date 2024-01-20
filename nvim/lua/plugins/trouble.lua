@@ -7,14 +7,17 @@ function M.config()
   local trouble = require("trouble")
 
   Set_keymap("n", "<leader>lt", function()
-    trouble.toggle()
+    trouble.toggle("workspace_diagnostics")
   end, { noremap = true, silent = true }, "Trouble")
   Set_keymap("n", "<leader>lj", function()
     trouble.next({ skip_groups = true, jump = true })
-  end, { noremap = true, silent = true }, "Next")
+  end, { noremap = true, silent = true }, "Next diagnostic")
   Set_keymap("n", "<leader>lk", function()
     trouble.previous({ skip_groups = true, jump = true })
-  end, { noremap = true, silent = true }, "Previous")
+  end, { noremap = true, silent = true }, "Previous diagnostic")
+  Set_keymap("n", "<leader>lx", function()
+    trouble.toggle("quickfix")
+  end, { noremap = true, silent = true }, "Close")
 end
 
 return M
