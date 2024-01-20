@@ -9,6 +9,7 @@ function M.config()
   local servers = {
     "lua_ls",
     "pyright",
+    "clangd",
   }
 
   require("mason").setup()

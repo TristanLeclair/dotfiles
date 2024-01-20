@@ -38,6 +38,7 @@ function M.config()
 	local servers = {
 		"lua_ls",
 		"pyright",
+    "clangd",
 	}
 
 	for _, server in pairs(servers) do
