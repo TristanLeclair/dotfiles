@@ -39,6 +39,8 @@ function M.config()
 		"lua_ls",
 		"pyright",
     "clangd",
+    "html",
+    "cssls",
 	}
 
 	for _, server in pairs(servers) do
