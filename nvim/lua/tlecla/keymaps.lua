@@ -75,7 +75,7 @@ Set_keymap("n", "J", "mzJ`z", opts)
 -- Navigate buffers
 Set_keymap("n", "<S-l>", ":bnext<CR>", opts)
 Set_keymap("n", "<S-h>", ":bprevious<CR>", opts)
-Set_keymap("n", "<leader>bd", ":bdelete<cr>", opts, "Delete buffer")
+Set_keymap("n", "<leader>bd", ":bp|bd #<cr>", opts, "Delete buffer")
 
 -- Insert --
 -- Press jk fast to exit insert mode
