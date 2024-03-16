@@ -1,12 +1,13 @@
 local M = {
 	"folke/trouble.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
+	opts = {
+		auto_close = true, -- automatically close the list when you have no diagnostics
+	},
 }
 
 function M.config()
-	local trouble = require("trouble").setup({
-		auto_close = true, -- automatically close the list when you have no diagnostics
-	})
+	local trouble = require("trouble")
 
 	Set_keymap("n", "<leader>lt", function()
 		trouble.toggle("workspace_diagnostics")
