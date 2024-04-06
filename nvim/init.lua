@@ -16,9 +16,12 @@ require("tlecla.keymaps")
 require("tlecla.autocommand")
 
 require("lazy").setup({
-	spec = {
-		{ import = "plugins" },
-	},
+  spec = {
+    { import = "plugins" },
+  },
+  change_detection = {
+    notify = false,
+  },
 })
 
 Set_keymap("n", "<leader>pl", "<cmd>Lazy<cr>", { silent = true, noremap = true }, "Lazy")

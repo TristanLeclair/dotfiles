@@ -1,11 +1,14 @@
 local M = {
   "lewis6991/gitsigns.nvim",
+  event = { "BufReadPre", "BufNewFile" },
 }
 
 function M.config()
-  require("gitsigns").setup()
+  local gs = require("gitsigns")
 
-  Set_keymap("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<cr>", { silent = true }, "Toggle line blame")
+  gs.setup()
+
+  Set_keymap("n", "<leader>gb", gs.toggle_current_line_blame, { silent = true }, "Toggle line blame")
 end
 
 return M
