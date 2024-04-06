@@ -6,7 +6,7 @@ local M = {
 }
 
 function M.config()
-	Set_keymap("n", "<leader>gg", "<cmd>LazyGit<cr>", { noremap = true, silent = true })
+	Set_keymap("n", "<leader>lg", "<cmd>LazyGit<cr>", { noremap = true, silent = true })
 end
 
 return M

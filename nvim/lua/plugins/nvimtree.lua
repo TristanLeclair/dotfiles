@@ -7,9 +7,22 @@ local M = {
   },
 }
 function M.config()
-  require("nvim-tree").setup({})
+  require("nvim-tree").setup({
+    actions = {
+      open_file = {
+        window_picker = {
+          enable = false,
+        },
+      },
+    },
+    git = {
+      ignore = false,
+    },
+  })
+  local opts = { noremap = true, silent = true }
 
-  Set_keymap("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { noremap = true, silent = true }, "Open tree view")
+  Set_keymap("n", "<leader>ee", "<cmd>NvimTreeToggle<cr>", opts, "Toggle file explorer")
+  Set_keymap("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<cr>", opts, "Toggle file explorer on current file")
 end
 
 return M
