@@ -18,14 +18,12 @@ function M.config()
   dashboard.section.buttons.val = {
     button("f", icons.ui.File .. " Find file", ":Telescope find_files <CR>"),
     button("n", icons.ui.NewFile .. " New file", ":ene <BAR> startinsert <CR>"),
-    button("r", icons.ui.History .. " Recent files", ":Telescope oldfiles <CR>"),
+    button("o", icons.ui.History .. " Recent files", ":Telescope oldfiles <CR>"),
     button("t", icons.ui.Text .. " Find text", ":Telescope live_grep <CR>"),
+    button("r", icons.ui.History .. " Restore session", ":SessionRestore<CR>"),
     button("c", icons.ui.Gear .. " Config", ":e " .. config_dir .. "/init.lua <CR>:cd %:h<cr>"),
     button("q", icons.ui.SignOut .. " Quit", ":qa<CR>"),
   }
-  local function footer()
-    return "https://github.com/TristanLeclair"
-  end
 
   dashboard.section.header.opts.hl = "Keyword"
   dashboard.section.buttons.opts.hl = "Include"

@@ -1,17 +1,24 @@
 local M = {
-  "rmagatti/auto-session",
+	"rmagatti/auto-session",
 }
 
 function M.config()
-  require("auto-session").setup()
+	local auto_session = require("auto-session")
 
-  Set_keymap(
-    "n",
-    "<leader>fm",
-    require("auto-session.session-lens").search_session,
-    { silent = true },
-    "Find session"
-  )
+  auto_session.setup({
+    auto_restore_enabled = false,
+    auto_session_suppress_dirs = { "~/", "~/projects/" }
+  })
+
+	Set_keymap(
+		"n",
+		"<leader>fm",
+		require("auto-session.session-lens").search_session,
+		{ silent = true },
+		"Find session"
+	)
+
+  Set_keymap("n", "<leader>wr", "<cmd>SessionRestore<CR>")
 end
 
 return M
