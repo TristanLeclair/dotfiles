@@ -34,7 +34,7 @@ function M.config()
 
       Set_keymap("n", "<leader>d", vim.diagnostic.open_float, opts, "Show Line Diagnostics")
       Set_keymap("n", "<leader>lj", vim.diagnostic.goto_next, opts, "Next Diagnostic")
-      Set_keymap("n", "<leader>lk", vim.diagnostic.get_prev, opts, "Prev Diagnostic")
+      Set_keymap("n", "<leader>lk", vim.diagnostic.goto_prev, opts, "Prev Diagnostic")
 
       Set_keymap("n", "<leader>lf", function()
         vim.lsp.buf.format({ async = true })
