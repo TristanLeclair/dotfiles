@@ -6,18 +6,26 @@ local M = {
 		"saadparwaiz1/cmp_luasnip",
 		"hrsh7th/cmp-nvim-lua",
 		"hrsh7th/cmp-path",
+		"hrsh7th/cmp-cmdline",
+		"hrsh7th/cmp-buffer",
+		"rafamadriz/friendly-snippets",
 	},
 }
 
 function M.config()
 	local cmp = require("cmp")
 	local luasnip = require("luasnip")
-  local kind_icons = require("tlecla.icons").kind
+	local kind_icons = require("tlecla.icons").kind
 
 	local check_backspace = function()
 		local col = vim.fn.col(".") - 1
 		return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 	end
+
+	require("luasnip.loaders.from_vscode").lazy_load()
+	require("luasnip.loaders.from_lua").lazy_load({ paths = "./snippets" })
+
+	Set_keymap("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/lua/plugins/luasnip.lua<CR>")
 
 	cmp.setup({
 		snippet = {
@@ -93,6 +101,25 @@ function M.config()
 				"s",
 			}),
 		}),
+	})
+
+	-- `/` cmdline setup.
+	cmp.setup.cmdline("/", {
+		mapping = cmp.mapping.preset.cmdline(),
+		sources = {
+			{ name = "buffer" },
+		},
+	})
+
+	-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+	cmp.setup.cmdline(":", {
+		mapping = cmp.mapping.preset.cmdline(),
+		sources = cmp.config.sources({
+			{ name = "path" },
+		}, {
+			{ name = "cmdline" },
+		}),
+		matching = { disallow_symbol_nonprefix_matching = false },
 	})
 end
 
