@@ -20,10 +20,10 @@ local types = require("luasnip.util.types")
 local conds = require("luasnip.extras.conditions")
 local conds_expand = require("luasnip.extras.conditions.expand")
 
-ls.add_snippets("all", {
-	s("sout", {
-		t('System.out.println("'),
-		i(1, "text"),
-    t('");'),
-	}),
-})
+-- Repeat Insernode text
+-- @param insert_node_id The id of the insert node to repeat (the first line from)
+local ri = function(insert_node_id)
+  return f(function(args)
+    return args[1][1]
+  end, insert_node_id)
+end
