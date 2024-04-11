@@ -83,12 +83,12 @@ Set_keymap("i", "jk", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
-Set_keymap("v", "<", "<gv", opts)
-Set_keymap("v", ">", ">gv", opts)
+Set_keymap("x", "<", "<gv", opts)
+Set_keymap("x", ">", ">gv", opts)
 
 -- Move text up and down
-Set_keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
-Set_keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
-Set_keymap("v", "p", '"_dP', opts)
+Set_keymap("x", "J", ":m '>+1<CR>gv=gv", opts)
+Set_keymap("x", "K", ":m '<-2<CR>gv=gv", opts)
+Set_keymap("x", "p", '"_dP', opts)
 
 return Set_keymap
