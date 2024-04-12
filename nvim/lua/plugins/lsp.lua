@@ -32,7 +32,7 @@ function M.config()
       -- Set_keymap("n", "gr", vim.lsp.buf.references, opts, "References")
       Set_keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts, "References")
 
-      Set_keymap("n", "<leader>d", vim.diagnostic.open_float, opts, "Show Line Diagnostics")
+      Set_keymap("n", "gl", vim.diagnostic.open_float, opts, "Show Line Diagnostics")
       Set_keymap("n", "<leader>lj", vim.diagnostic.goto_next, opts, "Next Diagnostic")
       Set_keymap("n", "<leader>lk", vim.diagnostic.goto_prev, opts, "Prev Diagnostic")
 
