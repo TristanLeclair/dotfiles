@@ -34,7 +34,7 @@ local M = {
         async = false,
         timeout_ms = 1000,
       })
-    end, { silent = true, noremap = true }, "Format")
+    end, "Format")
   end,
 }
 

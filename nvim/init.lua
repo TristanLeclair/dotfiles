@@ -24,4 +24,4 @@ require("lazy").setup({
   },
 })
 
-Set_keymap("n", "<leader>pl", "<cmd>Lazy<cr>", { silent = true, noremap = true }, "Lazy")
+Set_keymap("n", "<leader>pl", "<cmd>Lazy<cr>", "Lazy")

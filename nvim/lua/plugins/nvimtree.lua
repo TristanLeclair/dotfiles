@@ -19,10 +19,8 @@ function M.config()
       ignore = false,
     },
   })
-  local opts = { noremap = true, silent = true }
-
-  Set_keymap("n", "<leader>ee", "<cmd>NvimTreeToggle<cr>", opts, "Toggle file explorer")
-  Set_keymap("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<cr>", opts, "Toggle file explorer on current file")
+  Set_keymap("n", "<leader>ee", "<cmd>NvimTreeToggle<cr>", "Toggle file explorer")
+  Set_keymap("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<cr>", "Toggle file explorer on current file")
 end
 
 return M

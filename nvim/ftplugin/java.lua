@@ -35,10 +35,9 @@ local config = {
 
 require("jdtls").start_or_attach(config)
 
-local opts = { noremap = true, silent = true }
 Set_keymap("n", "<leader>uc", function()
   require("jdtls").test_class()
-end, opts, "Test class")
+end, "Test class")
 Set_keymap("n", "<leader>un", function()
   require("jdtls").test_nearest_method()
-end, opts, "Test nearest method")
+end, "Test nearest method")

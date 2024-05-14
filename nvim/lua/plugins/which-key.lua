@@ -26,6 +26,7 @@ function M.config()
       e = {
         "Tree",
       },
+      s = { "Split" },
     },
   })
 end

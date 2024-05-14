@@ -18,30 +18,30 @@ function M.config()
       -- Buffer local mappings.
       -- See `:help vim.lsp.*` for documentation on any of the below functions
       local opts = { buffer = ev.buf, silent = true }
-      Set_keymap("n", "gD", vim.lsp.buf.declaration, opts, "Declaration")
-      -- Set_keymap("n", "gd", vim.lsp.buf.definition, opts, "Definition")
-      Set_keymap("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts, "Definition")
-      Set_keymap("n", "K", vim.lsp.buf.hover, opts, "Hover")
-      -- Set_keymap("n", "gI", vim.lsp.buf.implementation, opts, "Implementation")
-      Set_keymap("n", "gI", "<cmd>Telescope lsp_implementations<CR>", opts, "Implementation")
-      Set_keymap("i", "<C-h>", vim.lsp.buf.signature_help, opts, "Signature Help")
-      Set_keymap("n", "<leader>D", vim.lsp.buf.type_definition, opts, "Type Definition")
-      Set_keymap("n", "<leader>lr", vim.lsp.buf.rename, opts, "Rename")
-      Set_keymap({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, opts, "Code Action")
+      Set_keymap("n", "gD", vim.lsp.buf.declaration, "Declaration", opts)
+      -- Set_keymap("n", "gd", vim.lsp.buf.definition, "Definition", opts)
+      Set_keymap("n", "gd", "<cmd>Telescope lsp_definitions<CR>", "Definition", opts)
+      Set_keymap("n", "K", vim.lsp.buf.hover, "Hover", opts)
+      -- Set_keymap("n", "gI", vim.lsp.buf.implementation, "Implementation", opts)
+      Set_keymap("n", "gI", "<cmd>Telescope lsp_implementations<CR>", "Implementation", opts)
+      Set_keymap("i", "<C-h>", vim.lsp.buf.signature_help, "Signature Help", opts)
+      Set_keymap("n", "<leader>D", vim.lsp.buf.type_definition, "Type Definition", opts)
+      Set_keymap("n", "<leader>lr", vim.lsp.buf.rename, "Rename", opts)
+      Set_keymap({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, "Code Action", opts)
 
-      -- Set_keymap("n", "gr", vim.lsp.buf.references, opts, "References")
-      Set_keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts, "References")
+      -- Set_keymap("n", "gr", vim.lsp.buf.references, "References", opts)
+      Set_keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", "References", opts)
 
-      Set_keymap("n", "gl", vim.diagnostic.open_float, opts, "Show Line Diagnostics")
-      Set_keymap("n", "<leader>lj", vim.diagnostic.goto_next, opts, "Next Diagnostic")
-      Set_keymap("n", "<leader>lk", vim.diagnostic.goto_prev, opts, "Prev Diagnostic")
+      Set_keymap("n", "gl", vim.diagnostic.open_float, "Show Line Diagnostics", opts)
+      Set_keymap("n", "<leader>lj", vim.diagnostic.goto_next, "Next Diagnostic", opts)
+      Set_keymap("n", "<leader>lk", vim.diagnostic.goto_prev, "Prev Diagnostic", opts)
 
       -- Set_keymap("n", "<leader>lf", function()
       --   vim.lsp.buf.format({ async = true })
-      -- end, opts, "Format")
+      -- end, "Format", opts)
 
-      Set_keymap("n", "<leader>lii", "<cmd>LspInfo<CR>", opts, "Lsp Info")
-      Set_keymap("n", "<leader>lir", "<cmd>LspRestart<CR>", opts, "Lsp Restart")
+      Set_keymap("n", "<leader>lii", "<cmd>LspInfo<CR>", "Lsp Info", opts)
+      Set_keymap("n", "<leader>lir", "<cmd>LspRestart<CR>", "Lsp Restart", opts)
     end,
   })
 

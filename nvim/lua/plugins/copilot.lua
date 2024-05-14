@@ -9,7 +9,7 @@ function M.config()
   require("copilot").setup({})
   require("copilot_cmp").setup({})
 
-  Set_keymap("n", "<leader>ct", "<cmd>silent Copilot toggle<cr>", { silent = true, noremap = true }, "Toggle Copilot")
+  Set_keymap("n", "<leader>ct", "<cmd>silent Copilot toggle<cr>", "Toggle Copilot")
 end
 
 return M

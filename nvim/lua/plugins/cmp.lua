@@ -29,7 +29,7 @@ function M.config()
     if luasnip.choice_active() then
       require("luasnip.extras.select_choice")()
     end
-  end, { silent = true, noremap = true }, "Select choice in snippet")
+  end, "Select choice in snippet")
 
   cmp.setup({
     snippet = {
