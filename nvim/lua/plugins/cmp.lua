@@ -9,20 +9,26 @@ local M = {
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-buffer",
     "rafamadriz/friendly-snippets",
+    "onsails/lspkind.nvim",
   },
 }
 
 function M.config()
+  local lspkind = require("lspkind")
+  lspkind.init({})
+
   local cmp = require("cmp")
   local luasnip = require("luasnip")
-  local kind_icons = require("tlecla.icons").kind
+  -- local kind_icons = require("tlecla.icons").kind
 
   local check_backspace = function()
     local col = vim.fn.col(".") - 1
     return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
   end
 
-  require("luasnip.loaders.from_vscode").lazy_load()
+  require("luasnip.loaders.from_vscode").lazy_load({
+    exclude = { "java", "sql" },
+  })
   require("luasnip.loaders.from_lua").lazy_load({ paths = "./snippets" })
 
   Set_keymap("i", "<c-j>", function()
@@ -40,18 +46,19 @@ function M.config()
     ---@diagnostic disable-next-line: missing-fields
     formatting = {
       fields = { "abbr", "kind", "menu" },
-      format = function(entry, vim_item)
-        -- Kind icons
-        -- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-        vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-        vim_item.menu = ({
-          nvim_lsp = "[LSP]",
-          luasnip = "[Snippet]",
-          buffer = "[Buffer]",
-          path = "[Path]",
-        })[entry.source.name]
-        return vim_item
-      end,
+      -- format = function(entry, vim_item)
+      --   -- Kind icons
+      --   -- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+      --   vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+      --   vim_item.menu = ({
+      --     nvim_lsp = "[LSP]",
+      --     luasnip = "[Snippet]",
+      --     buffer = "[Buffer]",
+      --     path = "[Path]",
+      --   })[entry.source.name]
+      --   return vim_item
+      -- end,
+      format = lspkind.cmp_format({}),
     },
     sources = {
       { name = "copilot" },
@@ -109,6 +116,26 @@ function M.config()
         "s",
       }),
     }),
+  })
+
+  cmp.setup.filetype({ "sql" }, {
+    sources = {
+      { name = "vim-dadbod-completion" },
+      { name = "buffer" },
+    },
+    -- formatting = {
+    --   fields = { "abbr", "kind", "menu" },
+    --   format = function(entry, vim_item)
+    --     -- Kind icons
+    --     -- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+    --     vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+    --     vim_item.menu = ({
+    --       vim_dadbod_completion = "[DB]",
+    --       buffer = "[Buffer]",
+    --     })[entry.source.name]
+    --     return vim_item
+    --   end,
+    -- },
   })
 
   -- `/` cmdline setup.
