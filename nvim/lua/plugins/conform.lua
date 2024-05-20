@@ -20,6 +20,7 @@ local M = {
         liquid = { "prettier" },
         lua = { "stylua" },
         python = { "black" },
+        sql = { "sql_formatter" },
       },
       format_on_save = {
         lsp_fallback = true,
@@ -27,6 +28,10 @@ local M = {
         timeout_ms = 1000,
       },
     })
+
+    conform.formatters.sql_formatter = {
+      prepend_args = { "-c", vim.fn.expand(vim.fn.stdpath("config") .. "/formatters/sql_formatter.json") },
+    }
 
     Set_keymap({ "n", "v" }, "<leader>lf", function()
       conform.format({
