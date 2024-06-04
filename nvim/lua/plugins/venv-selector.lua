@@ -6,12 +6,16 @@ local M = {
     "mfussenegger/nvim-dap-python",
   },
   branch = "regexp",
+  cmd = {
+    "VenvSelectCached",
+    "VenvSelect",
+  },
 }
 
 function M.config()
   require("venv-selector").setup()
-  Set_keymap("n", "<leader>lvc", "<cmd>VenvSelectCached<cr>", "Select cached venv")
-  Set_keymap("n", "<leader>lvs", "<cmd>VenvSelect<cr>", "Select venv")
 end
+Set_keymap("n", "<leader>lvc", "<cmd>VenvSelectCached<cr>", "Select cached venv")
+Set_keymap("n", "<leader>lvs", "<cmd>VenvSelect<cr>", "Select venv")
 
 return M
