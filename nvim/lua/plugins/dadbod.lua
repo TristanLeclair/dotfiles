@@ -23,5 +23,6 @@ end
 
 Set_keymap("n", "<leader>dt", "<cmd>DBUIToggle<cr>", "Toggle DBUI in current buffer")
 Set_keymap("n", "<leader>db", "<cmd>tabnew|DBUI<cr>", "Start DBUI in new tab")
+Set_keymap("n", "<leader>dr", "w?SELECT<CR>v/;<CR><Plug>(DBUI_ExecuteQuery)", "Run Select under cursor")
 
 return M
