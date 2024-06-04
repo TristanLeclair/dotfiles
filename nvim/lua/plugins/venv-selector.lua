@@ -5,6 +5,7 @@ local M = {
     "nvim-telescope/telescope.nvim",
     "mfussenegger/nvim-dap-python",
   },
+  branch = "regexp",
 }
 
 function M.config()
