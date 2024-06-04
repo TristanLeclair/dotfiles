@@ -3,8 +3,7 @@ local M = {
 }
 
 function M.config()
-  require('illuminate').configure()
+  require("illuminate").configure()
 end
-
 
 return M
