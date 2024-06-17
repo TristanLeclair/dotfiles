@@ -53,6 +53,8 @@ function M.config()
     "clangd",
     "html",
     "cssls",
+    "vimls",
+    "yamlls",
   }
 
   for _, server in pairs(servers) do

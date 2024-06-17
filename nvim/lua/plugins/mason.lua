@@ -10,6 +10,7 @@ function M.config()
     "lua_ls",
     "pyright",
     "clangd",
+    "yamlls",
   }
 
   require("mason").setup()
