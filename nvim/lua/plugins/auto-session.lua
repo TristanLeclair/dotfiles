@@ -12,7 +12,7 @@ function M.config()
 
   Set_keymap("n", "<leader>fm", require("auto-session.session-lens").search_session, "Find session")
 
-  Set_keymap("n", "<leader>wr", "<cmd>SessionRestore<CR>")
+  Set_keymap("n", "<leader>sr", "<cmd>SessionRestore<CR>")
 end
 
 return M

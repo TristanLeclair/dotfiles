@@ -1,13 +1,12 @@
 local M = {
   "kdheepak/lazygit.nvim",
-  event = "VeryLazy",
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
+  cmd = { "LazyGit" },
 }
 
-function M.config()
-  Set_keymap("n", "<leader>lg", "<cmd>LazyGit<cr>")
-end
+function M.config() end
+Set_keymap("n", "<leader>lg", "<cmd>LazyGit<cr>")
 
 return M
