@@ -11,6 +11,7 @@ local M = {
     "rafamadriz/friendly-snippets",
     "onsails/lspkind.nvim",
   },
+  event = { "InsertEnter", "CmdlineEnter" },
 }
 
 function M.config()
@@ -86,11 +87,11 @@ function M.config()
         --   require("luasnip.extras.select_choice")()
         if cmp.visible() then
           cmp.select_next_item()
-        elseif luasnip.jumpable(1) then
-          luasnip.jump(1)
-        elseif luasnip.expandable() then
-          luasnip.expand()
-        elseif luasnip.expand_or_jumpable() then
+        -- elseif luasnip.jumpable(1) then
+        --   luasnip.jump(1)
+        -- elseif luasnip.expandable() then
+        --   luasnip.expand()
+        elseif luasnip.expand_or_locally_jumpable() then
           luasnip.expand_or_jump()
         elseif check_backspace() then
           fallback()

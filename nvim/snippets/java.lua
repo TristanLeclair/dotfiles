@@ -19,6 +19,7 @@ local fmta = require("luasnip.extras.fmt").fmta
 local types = require("luasnip.util.types")
 local conds = require("luasnip.extras.conditions")
 local conds_expand = require("luasnip.extras.conditions.expand")
+local postfix = require("luasnip.extras.postfix").postfix
 
 -- Repeat Insernode text
 -- @param insert_node_id The id of the insert node to repeat (the first line from)
@@ -228,4 +229,87 @@ ls.add_snippets("all", {
       { i(1, "testName"), i(0) }
     )
   ),
+
+  postfix(".sout", {
+    d(1, function(_, parent)
+      local var = parent.snippet.env.postfix_match
+      return sn(nil, fmta("system.out.println(<>);", { var }))
+    end, {}),
+  }),
+
+  postfix(".serr", {
+    d(1, function(_, parent)
+      local var = parent.snippet.env.postfix_match
+      return sn(nil, fmta("system.err.println(<>);", { var }))
+    end, {}),
+  }),
+
+  postfix(".soutv", {
+    d(1, function(_, parent)
+      local var = parent.snippet.env.POSTFIX_MATCH
+      return sn(nil, fmta('System.out.println("<> = " + <>);', { i(1, var), var }))
+    end, {}),
+  }),
+
+  postfix(".souf", {
+    d(1, function(_, parent)
+      local var = parent.snippet.env.POSTFIX_MATCH
+      return sn(nil, fmta('System.out.printf("<>", <>);', { i(1, "%s"), var }))
+    end, {}),
+  }),
+
+  postfix(".arg", {
+    d(1, function(_, parent)
+      local var = parent.snippet.env.POSTFIX_MATCH
+      return sn(nil, fmta("<>(<>)", { i(1, "call"), var }))
+    end, {}),
+  }),
+
+  postfix(".cast", {
+    d(1, function(_, parent)
+      local var = parent.snippet.env.POSTFIX_MATCH
+      return sn(nil, fmta("((<>) <>)", { i(1, "type"), var }))
+    end, {}),
+  }),
+
+  postfix(".castvar", {
+    d(1, function(_, parent)
+      local var = parent.snippet.env.POSTFIX_MATCH
+      return sn(nil, fmta("<> <> = (<>) <>;", { i(1, "type"), i(2, "new" .. var), ri(1), var }))
+    end, {}),
+  }),
+
+  postfix(".for", {
+    d(1, function(_, parent)
+      local var = parent.snippet.env.POSTFIX_MATCH
+      return sn(nil, fmta("for (<> <> : <>) {\n <> \n}", { i(1, "type"), i(2, var .. "unit"), var, i(0) }))
+    end, {}),
+  }),
+
+  postfix(".iter", {
+    d(1, function(_, parent)
+      local var = parent.snippet.env.POSTFIX_MATCH
+      return sn(nil, fmta("for (<> <> : <>) {\n <> \n}", { i(1, "type"), i(2, var .. "unit"), var, i(0) }))
+    end, {}),
+  }),
+
+  postfix(".if", {
+    d(1, function(_, parent)
+      local var = parent.snippet.env.POSTFIX_MATCH
+      return sn(nil, fmta("if (<>) {\n <> \n}", { var, i(0) }))
+    end, {}),
+  }),
+
+  postfix(".try", {
+    d(1, function(_, parent)
+      local var = parent.snippet.env.POSTFIX_MATCH
+      return sn(
+        nil,
+        fmta(
+          "try {\n <>(); \n} catch(<> <>) {\n <><>;\n}",
+          { var, i(1, "Exception"), i(2, "e"), ri(2), i(3, ".printStackTrace()") }
+        )
+      )
+    end, {}),
+  }),
 })

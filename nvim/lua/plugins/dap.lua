@@ -6,6 +6,10 @@ local M = {
     "mfussenegger/nvim-dap",
     "nvim-neotest/nvim-nio",
   },
+  event = {
+    "BufEnter *.java",
+    "BufEnter *.py",
+  },
 }
 
 function M.config()
