@@ -55,6 +55,7 @@ function M.config()
     "cssls",
     "vimls",
     "yamlls",
+    "taplo",
   }
 
   for _, server in pairs(servers) do

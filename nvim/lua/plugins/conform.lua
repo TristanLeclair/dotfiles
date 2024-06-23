@@ -15,6 +15,7 @@ local M = {
         html = { "prettier" },
         json = { "prettier" },
         yaml = { "prettier" },
+        toml = { "taplo" },
         markdown = { "prettier" },
         graphql = { "prettier" },
         liquid = { "prettier" },
@@ -28,6 +29,10 @@ local M = {
         timeout_ms = 1000,
       },
     })
+
+    conform.formatters.taplo = {
+      append_args = { "--config", vim.fn.expand(vim.fn.stdpath("config") .. "/formatters/taplo.toml") },
+    }
 
     conform.formatters.sql_formatter = {
       prepend_args = { "-c", vim.fn.expand(vim.fn.stdpath("config") .. "/formatters/sql_formatter.json") },

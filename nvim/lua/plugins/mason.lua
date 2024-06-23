@@ -12,6 +12,7 @@ function M.config()
     "pyright",
     "clangd",
     "yamlls",
+    "taplo",
   }
 
   require("mason").setup()
