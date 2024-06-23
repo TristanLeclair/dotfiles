@@ -56,6 +56,8 @@ function M.config()
     "vimls",
     "yamlls",
     "taplo",
+    "dockerls",
+    "docker_compose_language_service",
   }
 
   for _, server in pairs(servers) do
