@@ -2,6 +2,7 @@ local M = {
   "j-hui/fidget.nvim",
   lazy = false,
   priority = 100,
+  enabled = false
 }
 
 function M.config()
