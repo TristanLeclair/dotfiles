@@ -2,7 +2,7 @@
 
 # Install apps
 
-sudo apt install unzip curl wget git make tldr command-not-found fd-find ripgrep
+sudo apt install unzip curl wget git make tldr command-not-found fd-find ripgrep stow bat
 
 ln -s $(which fdfind) ~/.local/bin/fd
 
@@ -11,7 +11,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 # Install ohmyposh
-curl -s https://ohmyposh.dev/install.sh | bash -s
+curl -s https://ohmyposh.dev/install.sh | sudo bash -s
 
 # Install lazygit
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
@@ -27,3 +27,9 @@ wget -c https://github.com/eza-community/eza/releases/latest/download/eza_x86_64
 sudo chmod +x eza
 sudo chown root:root eza
 sudo mv eza /usr/local/bin/eza
+
+# Install neovim
+wget https://github.com/neovim/neovim/releases/tag/v0.9.4
+tar -xzf nvim-linux64.tar.gz
+mv nvim-linux64 /opt/nvim
+ln -s /opt/nvim/bin/nvim ~/.local/bin/nvim
