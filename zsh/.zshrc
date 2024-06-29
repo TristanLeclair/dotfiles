@@ -10,7 +10,7 @@ export KEYTIMEOUT=1
 
 export EDITOR='nvim'
 
-export PATH=/home/tlecla/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # =========================================
 # Basic zsh config
@@ -95,7 +95,7 @@ bindkey '^n' autosuggest-accept
 [ ! -d "$ZDOTDIR/plugins/catppuccin" ] && mkdir -p "$ZDOTDIR/plugins/catppuccin"
 [ ! -d "$ZDOTDIR/plugins/zsh-syntax-highlighting" ] && mkdir -p "$ZDOTDIR/plugins/zsh-syntax-highlighting"
 [ ! -f "$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZDOTDIR/plugins/zsh-syntax-highlighting/"
-[ ! -f "$ZDOTDIR"/plugins/catppuccin/catppuccin_mocha-zsh-syntax-highlighting.zsh ] && git clone https://github.com/catppuccin/zsh-syntax-highlighting.git "$HOME/tmp/catppuccin/" && cp -v "$HOME/tmp/catppuccin/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh" "$ZDOTDIR/plugins/catppuccin/catppuccin_mocha-zsh-syntax-highlighting.zsh"
+[ ! -f "$ZDOTDIR"/plugins/catppuccin/catppuccin_mocha-zsh-syntax-highlighting.zsh ] && git clone https://github.com/catppuccin/zsh-syntax-highlighting.git "$HOME/tmp/catppuccin/" && cp -v "$HOME/tmp/catppuccin/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh" "$ZDOTDIR/plugins/catppuccin/catppuccin_mocha-zsh-syntax-highlighting.zsh" && rm -rf "$HOME/tmp/catppuccin"
 source $ZDOTDIR/plugins/catppuccin/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
