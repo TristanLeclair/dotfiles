@@ -39,6 +39,11 @@ eval "$(zoxide init zsh)"
 # oh my posh prompt
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/base.toml)"
 
+# kcat
+if command -v kafkacat >/dev/null 2>&1; then
+  export KAFKACAT_CONFIG="$HOME/.config/kcat/kcat.conf"
+fi
+
 # Plugins, must be installed via git in the $ZDOTDIR/plugins directory
 
 source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
