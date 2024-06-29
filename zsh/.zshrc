@@ -12,6 +12,9 @@ export EDITOR='nvim'
 
 export PATH=/home/tlecla/.local/bin:$PATH
 
+# =========================================
+# Basic zsh config
+# =========================================
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=10000
 SAVEHIST=10000
@@ -27,12 +30,18 @@ _comp_options+=(globdots)
 # Colors
 autoload -Uz colors && colors
 
+# ===========================================
 # Load aliases
+# ===========================================
 [ -f "$ZDOTDIR/.aliases" ] && source "$ZDOTDIR/.aliases"
 for file in "$ZDOTDIR"/aliases/*; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 
+
+# ===========================================
+# Setup apps
+# ===========================================
 # zoxide
 eval "$(zoxide init zsh)"
 
@@ -43,11 +52,6 @@ eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/base.toml)"
 if command -v kafkacat >/dev/null 2>&1; then
   export KAFKACAT_CONFIG="$HOME/.config/kcat/kcat.conf"
 fi
-
-# Plugins, must be installed via git in the $ZDOTDIR/plugins directory
-
-source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-bindkey '^n' autosuggest-accept
 
 # Fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -76,13 +80,33 @@ _fzf_comprun() {
   esac
 }
 
-#Theme for syntax highlighting
-source $ZDOTDIR/plugins/catppuccin/catppuccin_mocha-zsh-syntax-highlighting.zsh
+# ===========================================
+# Plugins, must be installed via git in the $ZDOTDIR/plugins directory
+# ===========================================
+[ ! -d "$ZDOTDIR/plugins" ] && mkdir -p "$ZDOTDIR/plugins/"
 
+# Auto Suggestions
+[ ! -d "$ZDOTDIR/plugins/zsh-autosuggestions" ] && mkdir -p "$ZDOTDIR/plugins/zsh-autosuggestions"
+[ ! -f "$ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && git clone https://github.com/zsh-users/zsh-autosuggestions "$ZDOTDIR/plugins/zsh-autosuggestions/"
+source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+bindkey '^n' autosuggest-accept
+
+#Theme for syntax highlighting
+[ ! -d "$ZDOTDIR/plugins/catppuccin" ] && mkdir -p "$ZDOTDIR/plugins/catppuccin"
+[ ! -d "$ZDOTDIR/plugins/zsh-syntax-highlighting" ] && mkdir -p "$ZDOTDIR/plugins/zsh-syntax-highlighting"
+[ ! -f "$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZDOTDIR/plugins/zsh-syntax-highlighting/"
+[ ! -f "$ZDOTDIR"/plugins/catppuccin/catppuccin_mocha-zsh-syntax-highlighting.zsh ] && git clone https://github.com/catppuccin/zsh-syntax-highlighting.git "$HOME/tmp/catppuccin/" && cp -v "$HOME/tmp/catppuccin/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh" "$ZDOTDIR/plugins/catppuccin/catppuccin_mocha-zsh-syntax-highlighting.zsh"
+source $ZDOTDIR/plugins/catppuccin/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Gitignore plugin
+[ ! -d "$ZDOTDIR/plugins/gitignore" ] && mkdir -p "$ZDOTDIR/plugins/gitignore"
+[ ! -f "$ZDOTDIR/plugins/gitignore/gitignore.plugin.zsh" ] && wget -P "$ZDOTDIR/plugins/gitignore/" https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/gitignore/gitignore.plugin.zsh
 source $ZDOTDIR/plugins/gitignore/gitignore.plugin.zsh
+
+# ===========================================
+# Other plugins
+# ===========================================
 
 # Apt plugins suggestions
 # apt install command-not-found
