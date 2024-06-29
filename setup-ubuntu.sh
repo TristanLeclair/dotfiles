@@ -2,7 +2,7 @@
 
 # Install apps
 
-sudo apt install unzip curl wget git make tldr command-not-found fd-find ripgrep stow bat
+sudo apt install unzip curl wget git make tldr command-not-found fd-find ripgrep stow bat gcc kafkacat
 
 ln -s $(which fdfind) ~/.local/bin/fd
 
@@ -18,6 +18,7 @@ LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/re
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 tar xf lazygit.tar.gz lazygit
 sudo install lazygit /usr/local/bin
+rm lazygit lazygit.tar.gz
 
 # Install zoxide
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
@@ -32,5 +33,8 @@ sudo mv eza /usr/local/bin/eza
 # Install neovim
 wget https://github.com/neovim/neovim/releases/download/v0.9.4/nvim-linux64.tar.gz
 tar -xzf nvim-linux64.tar.gz
-mv nvim-linux64 /opt/nvim
+sudo mv nvim-linux64 /opt/nvim
 ln -s /opt/nvim/bin/nvim ~/.local/bin/nvim
+
+# Install sdkman
+curl -s "https://get.sdkman.io" | bash
