@@ -28,8 +28,9 @@ sudo chmod +x eza
 sudo chown root:root eza
 sudo mv eza /usr/local/bin/eza
 
+
 # Install neovim
-wget https://github.com/neovim/neovim/releases/tag/v0.9.4
+wget https://github.com/neovim/neovim/releases/download/v0.9.4/nvim-linux64.tar.gz
 tar -xzf nvim-linux64.tar.gz
 mv nvim-linux64 /opt/nvim
 ln -s /opt/nvim/bin/nvim ~/.local/bin/nvim
