@@ -1,0 +1,59 @@
+#Aliases
+
+#Apps
+alias browser='/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe'
+alias open='cmd.exe /C start'
+
+#CD Shortcuts
+alias trist='cd /mnt/c/Users/trist'
+alias github='cd /mnt/c/Users/trist/Github'
+
+# Cat
+alias bat=batcat
+alias cat=bat
+
+# Fzf
+alias fzfp='fzf --preview "batcat --color=always --style=header,grid --line-range :500 {}"'
+alias nf='nvim $(fzfp)'
+alias hy="
+  fc -ln 0 |
+  awk '!a[\$0]++' |
+  fzf --tac --multi --header 'Copy history' |
+  clip.exe
+"
+
+#LS
+alias ls='eza'
+alias ll='eza --long --all --icons'
+alias la='eza -a'
+
+#Git
+alias g=git
+alias gst='git status'
+alias gba='git branch -a'
+alias lg=lazygit
+
+#Vim
+alias v=nvim
+
+# enable color support of ls and also add handy aliases
+  if [ -x /usr/bin/dircolors ]; then
+      test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+      alias dir='dir --color=auto'
+      alias vdir='vdir --color=auto'
+      alias grep='grep --color=auto'
+      alias fgrep='fgrep --color=auto'
+      alias egrep='egrep --color=auto'
+  fi
+
+# CLI things
+alias lc='wc -l'
+
+# tmux
+alias ta='tmux a'
+alias ts='tmux new'
+alias tat='tmux a -t'
+alias tst='tmux new -s'
+
+alias tree="eza -T"
+alias treel="eza -Tl --icons"
