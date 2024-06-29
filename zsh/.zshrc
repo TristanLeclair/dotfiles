@@ -97,7 +97,7 @@ bindkey '^n' autosuggest-accept
 [ ! -f "$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZDOTDIR/plugins/zsh-syntax-highlighting/"
 if [ ! -f "$ZDOTDIR/plugins/catppuccin/catppuccin_mocha-zsh-syntax-highlighting.zsh" ]; then
   git clone https://github.com/catppuccin/zsh-syntax-highlighting.git "$HOME/tmp/catppuccin/"
-  cp -v "$HOME/tmp/catppuccin/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh" "$ZDOTDIR/plugins/catppuccin/catppuccin_mocha-zsh-syntax-highlighting.zsh"
+  cp -v "$HOME/tmp/catppuccin/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh" "$ZDOTDIR/plugins/catppuccin/catppuccin_mocha-zsh-syntax-highlighting.zsh"
   rm -rf "$HOME/tmp/catppuccin"
 fi
 source $ZDOTDIR/plugins/catppuccin/catppuccin_mocha-zsh-syntax-highlighting.zsh
