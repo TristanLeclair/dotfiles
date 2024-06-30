@@ -1,2 +1,2 @@
 # Kafka
-# alias kcat='kafkacat'
+alias kcat='kafkacat'
