@@ -9,13 +9,6 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
   alignment = 'left'
   newline = true
 
-  # [[blocks.segments]]
-  #   type = 'os'
-  #   style = 'plain'
-  #   background = 'transparent'
-  #   foreground = 'p:os'
-  #   template = '{{ .Icon }} '
-
   [[blocks.segments]]
     foreground = 'p:blue'
     style = 'plain'
