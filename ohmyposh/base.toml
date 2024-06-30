@@ -57,11 +57,6 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
     background = "transparent"
     template = ' {{ if .Error }} {{ .Error }}{{ else }}{{ if and .Venv (ne .Venv "base") }} {{ .Venv }} {{ .Full }}{{ end }}{{ end }}'
 
-  [[blocks.segments]]
-    type = 'time'
-    style = 'plain'
-    foreground = 'p:surface1'
-
 [[blocks]]
   type = 'rprompt'
   overflow = 'hidden'
