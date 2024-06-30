@@ -2,7 +2,7 @@
 
 # Install apps
 
-sudo apt install unzip curl wget git make tldr command-not-found fd-find ripgrep stow bat gcc kafkacat
+sudo apt install unzip zip curl wget git make tldr command-not-found fd-find ripgrep stow bat gcc kafkacat
 
 ln -s $(which fdfind) ~/.local/bin/fd
 
@@ -35,6 +35,7 @@ wget https://github.com/neovim/neovim/releases/download/v0.9.4/nvim-linux64.tar.
 tar -xzf nvim-linux64.tar.gz
 sudo mv nvim-linux64 /opt/nvim
 ln -s /opt/nvim/bin/nvim ~/.local/bin/nvim
+rm -rf nvim-linux64.tar.gz
 
 # Install sdkman
 curl -s "https://get.sdkman.io" | bash
