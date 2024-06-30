@@ -52,5 +52,4 @@
 
 ## Next steps for setup
 
-- tmux
 - gh
