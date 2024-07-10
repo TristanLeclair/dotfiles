@@ -51,9 +51,10 @@ alias lc='wc -l'
 
 # tmux
 alias ta='tmux a'
-alias ts='tmux new'
+alias tn='tmux new'
 alias tat='tmux a -t'
-alias tst='tmux new -s'
+alias tnt='tmux new -s'
+alias ts='./.dev.tmux.sh'
 
 alias tree="eza -T"
 alias treel="eza -Tl --icons"
