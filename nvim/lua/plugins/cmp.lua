@@ -81,24 +81,26 @@ function M.config()
 
       -- Accept currently selected item. If none selected, `select` first item.
       -- Set `select` to `false` to only confirm explicitly selected items.
-      ["<CR>"] = cmp.mapping.confirm({ select = false }),
-      ["<Tab>"] = cmp.mapping(function(fallback)
-        -- if luasnip.choice_active() then
-        --   require("luasnip.extras.select_choice")()
+      ["<CR>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
-          cmp.select_next_item()
-        -- elseif luasnip.jumpable(1) then
-        --   luasnip.jump(1)
-        -- elseif luasnip.expandable() then
-        --   luasnip.expand()
-        elseif luasnip.expand_or_locally_jumpable() then
-          luasnip.expand_or_jump()
-        elseif check_backspace() then
-          fallback()
-        -- require("neotab").tabout()
+          if luasnip.expandable() then
+            luasnip.expand()
+          else
+            cmp.confirm({ select = true })
+          end
         else
           fallback()
-          -- require("neotab").tabout()
+        end
+      end),
+      ["<Tab>"] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          cmp.select_next_item()
+        elseif luasnip.locally_jumpable(1) then
+          luasnip.jump(1)
+        elseif check_backspace() then
+          fallback()
+        else
+          fallback()
         end
       end, {
         "i",
