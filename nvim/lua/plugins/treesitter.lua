@@ -28,7 +28,7 @@ function M.config()
       "vimdoc",
       "yaml",
     },
-    auto_install = false,
+    auto_install = true,
     ignore_install = {},
     modules = {},
     sync_install = false,
