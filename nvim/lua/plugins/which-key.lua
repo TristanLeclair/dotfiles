@@ -5,29 +5,16 @@ local M = {
 
 function M.config()
   local wk = require("which-key")
-  wk.register({
-    ["<leader>"] = {
-      p = {
-        "Plugins",
-      },
-      g = {
-        "Git",
-      },
-      l = {
-        "Lsp",
-      },
-      f = {
-        "Find",
-        b = { "Extras" },
-      },
-      c = {
-        "Copilot",
-      },
-      e = {
-        "Tree",
-      },
-      s = { "Split" },
-    },
+  wk.add({
+    { "<leader>c", group = "Copilot" },
+    { "<leader>d", group = "DB" },
+    { "<leader>e", group = "Tree" },
+    { "<leader>f", group = "Find" },
+    { "<leader>fb", group = "Extras" },
+    { "<leader>g", group = "Git" },
+    { "<leader>l", group = "Lsp" },
+    { "<leader>p", group = "Plugins" },
+    { "<leader>s", group = "Split" },
   })
 end
 
