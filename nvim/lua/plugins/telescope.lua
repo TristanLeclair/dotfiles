@@ -3,12 +3,14 @@ local M = {
   dependencies = {
     "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    "jvgrootveld/telescope-zoxide",
     "nvim-tree/nvim-web-devicons",
   },
 }
 
 function M.config()
-  require("telescope").setup({
+  local t = require("telescope")
+  t.setup({
     defaults = {
       path_display = { "smart" },
     },
@@ -25,7 +27,8 @@ function M.config()
     },
   })
 
-  require("telescope").load_extension("fzf")
+  t.load_extension("fzf")
+  t.load_extension("zoxide")
   local builtin = require("telescope.builtin")
 
   Set_keymap("n", "<leader>fem", builtin.man_pages, "Man pages")
@@ -40,6 +43,7 @@ function M.config()
   Set_keymap("n", "<leader>fs", builtin.current_buffer_fuzzy_find, "Fuzzy find buffer")
   Set_keymap("n", "<leader>fk", builtin.keymaps, "Find keymaps")
   Set_keymap("n", "<leader><c-r>", builtin.command_history, "Command history")
+  Set_keymap("n", "<leader>cd", t.extensions.zoxide.list, "Zoxide list")
 end
 
 return M
