@@ -6,12 +6,6 @@ local M = {
         laststatus = 0,
       },
     },
-    -- on_open = function()
-    --   require("lualine").hide()
-    -- end,
-    -- on_close = function()
-    --   require("lualine").hide({ unhide = true })
-    -- end,
   },
 }
 
