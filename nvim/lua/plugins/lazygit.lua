@@ -4,6 +4,7 @@ local M = {
     "nvim-lua/plenary.nvim",
   },
   cmd = { "LazyGit" },
+  enabled = false,
 }
 
 function M.config() end
