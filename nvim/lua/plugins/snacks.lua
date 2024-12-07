@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-global
 local M = {
   "folke/snacks.nvim",
   priority = 1000,
