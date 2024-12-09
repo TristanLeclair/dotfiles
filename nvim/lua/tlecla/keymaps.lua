@@ -100,4 +100,8 @@ Set_keymap("x", "J", ":m '>+1<CR>gv=gv")
 Set_keymap("x", "K", ":m '<-2<CR>gv=gv")
 Set_keymap("x", "p", '"_dP')
 
+Set_keymap("n", "<leader><leader>x", "<cmd>source %<CR>", "Source file")
+Set_keymap("n", "<leader>x", ":.lua<CR>", "Run line")
+Set_keymap("v", "<leader>x", ":lua<CR>", "Run selection")
+
 return Set_keymap
