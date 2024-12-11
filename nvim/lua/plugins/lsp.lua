@@ -59,6 +59,9 @@ local M = {
           -- Enable completion triggered by <c-x><c-o>
           vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
+          -- FIX BEFORE USING
+          -- require("plugins.telescope.references").setup()
+
           -- Buffer local mappings.
           -- See `:help vim.lsp.*` for documentation on any of the below functions
           local opts = { buffer = ev.buf, silent = true }
