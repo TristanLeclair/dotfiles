@@ -1,9 +1,4 @@
 {
-    "diagnostics.disable": [
-        "redundant-parameter"
-    ],
-    "diagnostics.globals": [
-        "vim",
-        "Snacks"
-    ]
+  "diagnostics.disable": ["redundant-parameter"]
 }
+

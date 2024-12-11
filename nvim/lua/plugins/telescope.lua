@@ -25,6 +25,9 @@ function M.config()
         find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
       },
     },
+    extensions = {
+      fzf = {},
+    },
   })
 
   t.load_extension("fzf")
@@ -34,9 +37,9 @@ function M.config()
   Set_keymap("n", "<leader>fem", builtin.man_pages, "Man pages")
   Set_keymap("n", "<leader>feg", builtin.git_files, "Git files")
   Set_keymap("n", "<leader>fec", builtin.colorscheme, "Find colorschemes")
-  Set_keymap("n", "<leader>fc", builtin.commands, "Find commands")
+  Set_keymap("n", "<leader>fh", builtin.help_tags, "Help Tags")
+  Set_keymap("n", "<leader>fecm", builtin.commands, "Find commands")
   Set_keymap("n", "<leader>fd", builtin.find_files, "Find files")
-  Set_keymap("n", "<leader>fg", builtin.live_grep, "Live grep")
   Set_keymap("n", "<leader>fb", builtin.buffers, "Find buffers")
   Set_keymap("n", "<leader>fw", builtin.grep_string, "Find string")
   Set_keymap("n", "<leader>fo", builtin.oldfiles, "Find old files")
@@ -44,6 +47,14 @@ function M.config()
   Set_keymap("n", "<leader>fk", builtin.keymaps, "Find keymaps")
   Set_keymap("n", "<leader><c-r>", builtin.command_history, "Command history")
   Set_keymap("n", "<leader>cd", t.extensions.zoxide.list, "Zoxide list")
+  Set_keymap("n", "<leader>fep", function()
+    builtin.find_files({
+      ---@diagnostic disable-next-line: param-type-mismatch
+      cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy"),
+    })
+  end, "Find package")
+
+  require("plugins.telescope.multigrep").setup()
 end
 
 return M

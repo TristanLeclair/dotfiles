@@ -2,7 +2,7 @@ local M = {
   settings = {
     Lua = {
       diagnostics = {
-        globals = { "vim" },
+        globals = { "vim", "Snacks" },
       },
       format = {
         enable = false,
