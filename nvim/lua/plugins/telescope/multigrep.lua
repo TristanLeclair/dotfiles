@@ -52,4 +52,6 @@ M.setup = function()
   Set_keymap("n", "<leader>fg", live_multigrep)
 end
 
+M.live_multigrep = live_multigrep
+
 return M

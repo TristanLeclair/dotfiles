@@ -34,6 +34,9 @@ function M.config()
   t.load_extension("zoxide")
   local builtin = require("telescope.builtin")
 
+  local multigrep = require("plugins.telescope.multigrep")
+  multigrep.setup()
+
   Set_keymap("n", "<leader>fem", builtin.man_pages, "Man pages")
   Set_keymap("n", "<leader>feg", builtin.git_files, "Git files")
   Set_keymap("n", "<leader>fec", builtin.colorscheme, "Find colorschemes")
@@ -47,14 +50,23 @@ function M.config()
   Set_keymap("n", "<leader>fk", builtin.keymaps, "Find keymaps")
   Set_keymap("n", "<leader><c-r>", builtin.command_history, "Command history")
   Set_keymap("n", "<leader>cd", t.extensions.zoxide.list, "Zoxide list")
-  Set_keymap("n", "<leader>fep", function()
+  Set_keymap("n", "<leader>fc", function()
+    builtin.find_files({
+      cwd = vim.fn.stdpath("config"),
+    })
+  end, "Find package")
+  Set_keymap("n", "<leader>fpf", function()
     builtin.find_files({
       ---@diagnostic disable-next-line: param-type-mismatch
       cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy"),
     })
   end, "Find package")
-
-  require("plugins.telescope.multigrep").setup()
+  Set_keymap("n", "<leader>fpg", function()
+    multigrep.live_multigrep({
+      ---@diagnostic disable-next-line: param-type-mismatch
+      cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy"),
+    })
+  end, "Grep packages")
 end
 
 return M
