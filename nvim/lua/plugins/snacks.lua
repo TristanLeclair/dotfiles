@@ -81,7 +81,7 @@ local M = {
       desc = "Rename File",
     },
     {
-      "<leader>gf",
+      "<leader>glf",
       function()
         Snacks.lazygit.log_file()
       end,
@@ -95,7 +95,7 @@ local M = {
       desc = "Lazygit",
     },
     {
-      "<leader>gl",
+      "<leader>glc",
       function()
         Snacks.lazygit.log()
       end,
