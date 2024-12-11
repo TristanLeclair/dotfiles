@@ -24,12 +24,33 @@ local M = {
     end,
   },
   {
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+    opts = {
+      library = {
+        -- See the configuration section for more details
+        -- Load luvit types when the `vim.uv` word is found
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
+  },
+  { -- optional cmp completion source for require statements and module annotations
+    "hrsh7th/nvim-cmp",
+    opts = function(_, opts)
+      opts.sources = opts.sources or {}
+      table.insert(opts.sources, {
+        name = "lazydev",
+        group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+      })
+    end,
+  },
+  {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      "folke/neodev.nvim",
       "artemave/workspace-diagnostics.nvim",
       "Hoffs/omnisharp-extended-lsp.nvim",
+      "nvim-telescope/telescope.nvim",
     },
     config = function()
       vim.api.nvim_create_autocmd("LspAttach", {
@@ -95,9 +116,6 @@ local M = {
         end
 
         if server == "lua_ls" then
-          require("neodev").setup({
-            library = { plugins = { "nvim-dap-ui" }, types = true },
-          })
         end
 
         if server == "omnisharp" then
