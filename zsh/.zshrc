@@ -11,6 +11,7 @@ export KEYTIMEOUT=1
 export EDITOR='nvim'
 
 export PATH=$HOME/.local/bin:$PATH
+source $ZDOTDIR/.zshenv
 
 # =========================================
 # Basic zsh config
