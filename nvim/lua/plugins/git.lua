@@ -7,8 +7,12 @@ local M = {
 
       gs.setup()
 
-      Set_keymap("n", "<leader>gh[", gs.next_hunk, "Next hunk")
-      Set_keymap("n", "<leader>gh]", gs.prev_hunk, "Previous hunk")
+      Set_keymap("n", "<leader>gh[", function()
+        gs.nav_hunk("next")
+      end, "Next hunk")
+      Set_keymap("n", "<leader>gh]", function()
+        gs.nav_hunk("prev")
+      end, "Previous hunk")
     end,
   },
   {
