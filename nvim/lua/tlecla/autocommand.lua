@@ -1,8 +1,10 @@
-vim.cmd([[
-  augroup _general_settings
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
-  augroup end
-]])
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight when yanking text",
+  group = vim.api.nvim_create_augroup("_general_settings", { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
 
 local config_path = vim.fn.stdpath("config")
 local data_path = vim.fn.stdpath("data")
