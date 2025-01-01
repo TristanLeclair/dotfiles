@@ -4,7 +4,7 @@ local M = {
     dependencies = {
       "williamboman/mason.nvim",
     },
-    event = { "BufReadPre", "BufNewFile" },
+    -- event = { "BufReadPre", "BufNewFile" },
     config = function()
       local servers = {
         "lua_ls",
