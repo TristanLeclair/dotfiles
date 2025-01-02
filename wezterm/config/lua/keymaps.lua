@@ -35,8 +35,17 @@ local function split_nav(resize_or_move, key)
 	}
 end
 
+local function leader_nav(key)
+	return {
+		key = key,
+		mods = "LEADER",
+		action = act.ActivatePaneDirection(direction_keys[key]),
+	}
+end
+
 return {
 	keys = {
+		{ key = "a", mods = "LEADER|CTRL", action = act.SendKey({ key = "a", mods = "CTRL" }) },
 		{ key = "Tab", mods = "CTRL", action = act.ActivateTabRelative(1) },
 		{ key = "Tab", mods = "SHIFT|CTRL", action = act.ActivateTabRelative(-1) },
 		{ key = "Enter", mods = "ALT", action = act.ToggleFullScreen },
@@ -169,6 +178,7 @@ return {
 		{ key = "r", mods = "LEADER", action = act.ReloadConfiguration },
 		{ key = "s", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
 		{ key = "t", mods = "SHIFT|CTRL", action = act.SpawnTab("CurrentPaneDomain") },
+		{ key = "c", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
 		{ key = "t", mods = "SUPER", action = act.SpawnTab("CurrentPaneDomain") },
 		{
 			key = "u",
@@ -218,6 +228,11 @@ return {
 		split_nav("resize", "j"),
 		split_nav("resize", "k"),
 		split_nav("resize", "l"),
+
+		leader_nav("h"),
+		leader_nav("j"),
+		leader_nav("k"),
+		leader_nav("l"),
 	},
 
 	key_tables = {
