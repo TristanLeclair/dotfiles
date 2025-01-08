@@ -17,5 +17,8 @@ config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = keymaps.keys
 config.key_tables = keymaps.key_tables
 
+-- setup events
+require("config.lua.events")
+
 -- and finally, return the configuration to wezterm
 return config

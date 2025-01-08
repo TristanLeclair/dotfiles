@@ -45,6 +45,7 @@ end
 
 return {
 	keys = {
+		{ key = "t", mods = "LEADER", action = act.EmitEvent("toggle-opacity") },
 		{ key = "a", mods = "LEADER|CTRL", action = act.SendKey({ key = "a", mods = "CTRL" }) },
 		{ key = "Tab", mods = "CTRL", action = act.ActivateTabRelative(1) },
 		{ key = "Tab", mods = "SHIFT|CTRL", action = act.ActivateTabRelative(-1) },
