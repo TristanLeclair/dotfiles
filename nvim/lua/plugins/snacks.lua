@@ -43,6 +43,11 @@ local M = {
         wo = { wrap = true }, -- Wrap notifications
       },
     },
+    lazygit = {
+      config = {
+        os = { editPreset = "nvim" },
+      },
+    },
   },
   keys = {
     {
