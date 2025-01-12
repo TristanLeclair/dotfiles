@@ -5,5 +5,14 @@
 [manager]
   show_hidden = true
 
+[plugin]
+  prepend_previewers = [
+    { name = "*.md", run = "glow" },
+    { name = "*/", run = "eza-preview" },
+  ]
+
 [opener]
-  edit = [{ run = "nvim %*", block = true, for = "windows" }]
+  edit = [
+    { run = "nvim %*", block = true, for = "windows" },
+    { run = "v_new_split %*", block = true, for = "windows", desc = "vsplit" },
+  ]
